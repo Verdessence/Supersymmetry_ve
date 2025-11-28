@@ -368,7 +368,7 @@ ASSEMBLER.recipeBuilder()
     .inputs(ore('threadPolytetrafluoroethylene') * 8)
     .outputs(item('gregtech:meta_plate', 4684))
     .duration(600)
-    .EUt(Globals.voltAmps[4])
+    .EUt(VA[EV])
     .buildAndRegister()
 
 // Space Armours
@@ -384,7 +384,7 @@ ASSEMBLER.recipeBuilder()
     .fluidInputs(fluid('e_glass') * 288)
     .outputs(item('susy:susy_armor', 15))
     .duration(600)
-    .EUt(Globals.voltAmps[4])
+    .EUt(VA[EV])
     .buildAndRegister()
 
 ASSEMBLER.recipeBuilder()
