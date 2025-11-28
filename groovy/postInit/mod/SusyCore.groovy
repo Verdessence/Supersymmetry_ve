@@ -388,7 +388,7 @@ ASSEMBLER.recipeBuilder()
 // Space Armours
 ASSEMBLER.recipeBuilder()
     .circuitMeta(2)
-    .inputs(item('gregtech:meta_plate', 4684) * 5)
+    .inputs(item('gregtech:meta_plate', 4718) * 5)
     .inputs(metaitem('metallized_plastic_film') * 35)
     .inputs(ore('platePolycaprolactam') * 5) // neoprene coated nylon
     .inputs(ore('platePolyethyleneTerephthalate') * 5)
@@ -403,7 +403,7 @@ ASSEMBLER.recipeBuilder()
 
 ASSEMBLER.recipeBuilder()
     .circuitMeta(2)
-    .inputs(item('gregtech:meta_plate', 4684) * 7)
+    .inputs(item('gregtech:meta_plate', 4718) * 7)
     .inputs(metaitem('metallized_plastic_film') * 49)
     .inputs(ore('platePolycaprolactam') * 7) // neoprene coated nylon
     .inputs(ore('platePolyethyleneTerephthalate') * 7)
