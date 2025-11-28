@@ -122,6 +122,7 @@ class ChangeFlags {
 
         Polybenzimidazole.setProperty(SuSyPropertyKey.FIBER, new FiberProperty(false, true, true))
         Polytetrafluoroethylene.setProperty(SuSyPropertyKey.FIBER, new FiberProperty(false, true, false))
+        Asbestos.setProperty(SuSyPropertyKey.FIBER, new FiberProperty(false, true, true))
         //Polydimethylsiloxane.setProperty(PropertyKey.FLUID, new FluidProperty(FluidStorageKeys.LIQUID, new FluidBuilder()));
 
         Tantalum.setProperty(PropertyKey.BLAST, new BlastProperty(3293, GasTier.MID, 480, 240, -1, -1));
@@ -161,14 +162,12 @@ class ChangeFlags {
         Steel.addFlags("generate_spring", "generate_spring_small", "continuously_cast");
         Titanium.addFlags("generate_foil", "generate_spring", "generate_spring_small");
         Lead.addFlags("generate_round");
-        Nickel.addFlags("generate_rod", "generate_foil");
+        Nickel.addFlags("generate_rod", "generate_foil", "generate_fine_wire");
         Aluminium.addFlags("generate_round", "generate_rotor", "continuously_cast");
-        Tungsten.addFlags("generate_fine_wire");
+        Tungsten.addFlags("generate_fine_wire", "hip_pressed");
         Molybdenum.addFlags("generate_fine_wire");
-        Tantalum.addFlags("generate_rod");
-        Tantalum.addFlags("generate_fine_wire");
+        Tantalum.addFlags("generate_rod", "generate_fine_wire", "generate_catalyst_bed", "generate_plate");
         Titanium.addFlags("generate_fine_wire");
-        Tantalum.addFlags("generate_catalyst_bed", "generate_plate");
         ChromiumTrioxide.addFlags("generate_catalyst_bed");
         Iron3Chloride.addFlags("generate_catalyst_bed");
         Platinum.addFlags("generate_catalyst_bed");
@@ -176,6 +175,7 @@ class ChangeFlags {
         Silver.addFlags("generate_catalyst_bed");
         Nickel.addFlags("generate_catalyst_bed");
         Magnesia.addFlags("generate_catalyst_bed");
+        CupricOxide.addFlags("generate_catalyst_bed");
         Brass.addFlags("generate_ring");
         Indium.addFlags("generate_plate");
         BisphenolA.addFlags("no_unification");
@@ -186,8 +186,13 @@ class ChangeFlags {
         SteelMagnetic.addFlags("generate_plate")
         StainlessSteel.addFlags("generate_round");
         Hafnium.addFlags("generate_long_rod", "generate_rod");
-        VanadiumSteel.addFlags("generate_round")
-        Mica.addFlags(GENERATE_PLATE, NO_UNIFICATION)
+        VanadiumSteel.addFlags("generate_round");
+        Mica.addFlags("generate_plate", "no_unification");
+        Rubber.addFlags("generate_plate");
+        TungstenCarbide.addFlags("hip_pressed");
+        Polycaprolactam.addFlags("generate_foil");
+        Palladium.addFlags("generate_bolt_screw");
+        Copper.addFlags("continuously_cast")
 
         /*
         ManganesePhosphide.addFlags("no_smashing", "no_smelting")
@@ -243,7 +248,8 @@ class ChangeFlags {
         PolyvinylAcetate.setFormula("[C4H6O2]n", true);
         PolyvinylButyral.setFormula("[C8H14O2]n", true);
         TungstenSteel.setFormula("Fe60W8Cr3Mo2V", true);
-
+        StainlessSteel.setFormula("Fe28Cr8Ni4Si2Mn", true);
+        
         // Ore Processing
         
         Pitchblende.addFlags("disable_decomposition")

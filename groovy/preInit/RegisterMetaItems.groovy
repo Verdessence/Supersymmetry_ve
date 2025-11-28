@@ -1,14 +1,11 @@
 package preInit
 
-import baubles.api.BaubleType
+import globals.Batteries
 import gregtech.api.GTValues
 import gregtech.api.GregTechAPI
 import gregtech.api.items.metaitem.ElectricStats
 import gregtech.api.items.metaitem.StandardMetaItem
-import gregtech.api.unification.material.MarkerMaterials
 import gregtech.api.unification.material.event.PostMaterialEvent
-import gregtech.api.unification.ore.OrePrefix
-import gregtech.integration.baubles.BaubleBehavior
 
 eventManager.listen { PostMaterialEvent event ->
 
@@ -34,7 +31,6 @@ eventManager.listen { PostMaterialEvent event ->
         addItem(105, "shape.mold.crucible")
         addItem(106, "crucible.boron.nitride")
         addItem(107, "crucible.quartz")
-        addItem(108, "crucible.graphite")
         addItem(109, "shape.mold.long_rod")
         addItem(110, "shape.mold.ring")
         addItem(111, "crucible.tantalum")
@@ -55,9 +51,7 @@ eventManager.listen { PostMaterialEvent event ->
         addItem(160, "red_mud_slag")
         addItem(161, "leached_red_mud_slag")
 
-        addItem(162, "pitch_binder")
-        addItem(163, "raw_electrode")
-        addItem(164, "graphite_electrode")
+        addItem(162, "carbon_paste")
 
         addItem(165, "rydberg_atom_array")
 
@@ -105,12 +99,11 @@ eventManager.listen { PostMaterialEvent event ->
         addItem(202, "vt_slag")
 
         addItem(203, "white_matte")
-
         addItem(210, "bound_leather")
 
-        addItem(212, "drone.lv").setMaxStackSize(1).addComponents(ElectricStats.createRechargeableBattery(10000, GTValues.LV)).setModelAmount(8).setCreativeTabs(GregTechAPI.TAB_GREGTECH_TOOLS)
+        addItem(212, "drone.lv").setMaxStackSize(1).addComponents(ElectricStats.createRechargeableBattery(10000, GTValues.LV)).setModelAmount(8).setCreativeTabs(GregTechAPI.TAB_GREGTECH_TOOLS);
         addItem(213, "glass_fibers")
-        addItem(214, "epoxy_lamina")
+        addItem(214, "titanium_cylinder");
 
         addItem(215, "commutator")
         addItem(216, "brush.unfired")
@@ -131,9 +124,10 @@ eventManager.listen { PostMaterialEvent event ->
         addItem(303, "carbon.mesh.treated")
         addItem(304, "proton_exchange_membrane_fuel_cell")
 
-        addItem(400, "engine.spark_plug")
+        addItem(400, "engine.spark_plug.iridium")
         addItem(401, "engine.piston")
         addItem(402, "engine.crankshaft")
+        addItem(403, "engine.spark_plug.palladium")
 
         addItem(500, "sintered_alumina.insulator")
 
@@ -211,14 +205,22 @@ eventManager.listen { PostMaterialEvent event ->
         addItem(3500, "copra")
 
         //Batteries 4000-4100
-        addItem(4000, "battery.lead_acid").addComponents(ElectricStats.createRechargeableBattery(120000, GTValues.LV), new BaubleBehavior(BaubleType.TRINKET)).setUnificationData(OrePrefix.battery, MarkerMaterials.Tier.LV).setModelAmount(8).setCreativeTabs(GregTechAPI.TAB_GREGTECH_TOOLS)
+        Batteries['lead_acid'].register(it, 4000)
         addItem(4001, "cathode.lead")
         addItem(4002, "anode.lead")
-        //addItem(4003, "battery.mv.lead_acid").addComponents(ElectricStats.createRechargeableBattery(480000, GTValues.MV)).setUnificationData(OrePrefix.battery, MarkerMaterials.Tier.MV).setModelAmount(8).setCreativeTabs(GregTechAPI.TAB_GREGTECH_TOOLS);
-        //addItem(4004, "battery.hv.lead_acid").addComponents(ElectricStats.createRechargeableBattery(1440000, GTValues.HV)).setUnificationData(OrePrefix.battery, MarkerMaterials.Tier.HV).setModelAmount(8).setCreativeTabs(GregTechAPI.TAB_GREGTECH_TOOLS);
-        //addItem(4005, "battery.mv.lithium_ion").addComponents(ElectricStats.createRechargeableBattery(600000, GTValues.MV)).setUnificationData(OrePrefix.battery, MarkerMaterials.Tier.MV).setModelAmount(8).setCreativeTabs(GregTechAPI.TAB_GREGTECH_TOOLS);
-        //addItem(4006, "battery.hv.lithium_ion").addComponents(ElectricStats.createRechargeableBattery(2400000, GTValues.HV)).setUnificationData(OrePrefix.battery, MarkerMaterials.Tier.HV).setModelAmount(8).setCreativeTabs(GregTechAPI.TAB_GREGTECH_TOOLS);
-        //addItem(4007, "battery.ev.lithium_ion").addComponents(ElectricStats.createRechargeableBattery(9600000, GTValues.EV)).setUnificationData(OrePrefix.battery, MarkerMaterials.Tier.EV).setModelAmount(8).setCreativeTabs(GregTechAPI.TAB_GREGTECH_TOOLS);
+        addItem(4003, "cathode.lead_paste")
+        addItem(4004, "cathode.lead_frame")
+        Batteries['ni_fe'].register(it, 4005)
+        addItem(4006, "electrode.steel_frame")
+        addItem(4007, "electrode.nickeled_steel_frame")
+        Batteries['ni_zn.mv'].register(it, 4008)
+        Batteries['ni_zn.hv'].register(it, 4009)
+        addItem(4010, "anode.zinc_oxide")
+        addItem(4011, "cathode.nioh2")
+        // Battery hulls 4090-4100
+        addItem(4090, "battery.primitivehull.lv")
+        addItem(4091, "battery.primitivehull.mv")
+
         addItem(4101, "vacuum_tube_components")
 
         //Dusts & Pulps 4500-4999
@@ -264,6 +266,19 @@ eventManager.listen { PostMaterialEvent event ->
         addItem(5305, "etched.silicon_dioxide")
         addItem(5306, "etched.polysilicon")
         addItem(5307, "etched.silicon_nitride")
+
+        //Epoxy Circuit Board + Components 5800-5900
+        addItem(5800, "board.epoxy.prepreg")
+        addItem(5801, "board.epoxy.copper_clad");
+        addItem(5802, "board.epoxy.patterned");
+        addItem(5803, "board.epoxy.etched");
+        addItem(5804, "board.epoxy.drilled");
+        addItem(5805, "board.epoxy.electroless");
+        addItem(5806, "board.epoxy.electrolytic");
+        addItem(5807, "board.epoxy.wet_masked");
+        addItem(5808, "board.epoxy.mask_affixed"); 
+        addItem(5809, "circuit_board.fr4");
+
 
         //Good Circuit Components 5900-6000
         addItem(5900, "op_amp")
@@ -387,6 +402,57 @@ eventManager.listen { PostMaterialEvent event ->
         addItem(10100, "turbojet.small")
         addItem(10101, "wing_panel.fiber_reinforced_epoxy")
         addItem(10102, "wing.small")
+
+        // Dimension Display items 10200-10250
+        addItem(10200, 'display.overworld')
+        addItem(10201, 'display.nether')
+        addItem(10202, 'display.beneath')
+        addItem(10203, 'display.moon')
+        addItem(10204, 'display.mercury')
+        addItem(10205, 'display.mars')
+        
+        // Space Components 10250-10300
+        addItem(10250, "parachute.drogue")
+        addItem(10251, "parachute.main")
+        addItem(10252, "parachute.supersonic_main")
+        addItem(10253, "carbon.mesh.phenolic.moist")
+        addItem(10254, "carbon.mesh.phenolic.treated")
+        addItem(10255, "carbon.tile.phenolic.treated")
+
+        // Induction Furnace 10300-10310
+        addItem(10300, "coated_copper_coil")
+        addItem(10301, "cured_coated_coil")
+        addItem(10302, "induction_coil")
+
+        // Graphite Crucibles and Electrodes 10310-10330
+        addItem(10310, "raw_electrode")
+        addItem(10311, "carbon_electrode")
+        addItem(10312, "graphite_electrode")
+        addItem(10313, "raw_carbon_crucible")
+        addItem(10314, "carbon_crucible")
+        addItem(10315, "crucible.graphite")
+        addItem(10316, "clay_graphite_paste")
+        addItem(10317, "clay_graphite_crucible")
+        addItem(10318, "raw_clay_graphite_crucible")
+
+        // Alumina Refractories 10330-10340
+        addItem(10330, "cac_clinker")
+        addItem(10331, "hot_cac_clinker")
+        addItem(10332, "cac_dust")
+      
+        // Lighting Components 10400-10420
+
+        addItem(10401, "carbon_filament")
+        addItem(10402, "gallium_nitride_buffer_wafer")
+        addItem(10403, "raw_led_wafer")
+        addItem(10404, "patterned_led_wafer")
+        addItem(10405, "etched_led_wafer")
+        addItem(10406, "metallized_led_wafer")
+        addItem(10407, "led_chip")
+        addItem(10408, "fused_quartz_bulb")
+        addItem(10409, "lamp.mercury.hp.unfilled")
+        addItem(10410, "lamp.mercury.hp")
+        addItem(10411, "lamp.mercury.lp")
     }
 
     log.infoMC("Finished adding metaitems")
