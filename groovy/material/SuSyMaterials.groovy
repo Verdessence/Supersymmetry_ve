@@ -779,6 +779,7 @@ class SuSyMaterials {
     public static Material AmmoxidationCatalyst
     public static Material PropyleneAmmoxidationMixture
     public static Material CrudeAcrylonitrile
+    public static Material SpaceGradeInterwovenPolymer
 
     // Petrochem Materials
 

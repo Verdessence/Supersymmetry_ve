@@ -359,6 +359,48 @@ ASSEMBLER.recipeBuilder()
     .EUt(Globals.voltAmps[4])
     .buildAndRegister()
 
+// Space stuff
+// Space Grade Plate 
+ASSEMBLER.recipeBuilder()
+    .circuitMeta(3)
+    .inputs(ore('threadNomex') * 8)
+    .inputs(ore('threadKevlar') * 8)
+    .inputs(ore('threadPolytetrafluoroethylene') * 8)
+    .outputs(item('gregtech:meta_plate', 4684))
+    .duration(600)
+    .EUt(Globals.voltAmps[4])
+    .buildAndRegister()
+
+// Space Armours
+ASSEMBLER.recipeBuilder()
+    .circuitMeta(2)
+    .inputs(item('gregtech:meta_plate', 4684) * 5)
+    .inputs(metaitem('metallized_plastic_film') * 35)
+    .inputs(ore('platePolycaprolactam') * 5) // neoprene coated nylon
+    .inputs(ore('platePolyethyleneTerephthalate') * 5)
+    .inputs(ore('platePolyurethane') * 5) // urethane coated nylon
+    .inputs(ore('plateSpandex') * 5) // interwoven plate of nylon and spandex
+    .inputs(ore('pipeSmallFluidEthyleneVinylAcetate') * 2)
+    .fluidInputs(fluid('e_glass') * 288)
+    .outputs(item('susy:susy_armor', 15))
+    .duration(600)
+    .EUt(Globals.voltAmps[4])
+    .buildAndRegister()
+
+ASSEMBLER.recipeBuilder()
+    .circuitMeta(2)
+    .inputs(item('gregtech:meta_plate', 4684) * 7)
+    .inputs(metaitem('metallized_plastic_film') * 49)
+    .inputs(ore('platePolycaprolactam') * 7) // neoprene coated nylon
+    .inputs(ore('platePolyethyleneTerephthalate') * 7)
+    .inputs(ore('platePolyurethane') * 7) // urethane coated nylon
+    .inputs(ore('plateSpandex') * 7) // interwoven plate of nylon and spandex
+    .inputs(ore('pipeSmallFluidEthyleneVinylAcetate') * 6)
+    .outputs(item('susy:susy_armor', 16))
+    .duration(800)
+    .EUt(Globals.voltAmps[4])
+    .buildAndRegister()
+
 //Industrial Concrete
 FLUID_SOLIDIFIER.recipeBuilder()
     .inputs(ore('frameGtSteel'))

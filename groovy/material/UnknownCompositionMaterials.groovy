@@ -3142,5 +3142,10 @@ class UnknownCompositionMaterials {
                 .liquid()
                 .color(0x5c8c24)
                 .build()
+
+        SpaceGradeInterwovenPolymer = new Material.Builder(4684, SuSyUtility.susyId('space_grade_interwoven_polymer'))
+		.flags(GENERATE_PLATE)
+	        .color(0xe3e3e3)
+                .build()
     }
 }
